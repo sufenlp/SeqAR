@@ -1,56 +1,27 @@
-# [[NAACL 2025] SeqAR: Jailbreak LLMs with Sequential Auto-Generated Characters](https://arxiv.org/abs/2407.01902)
+# **SoP**: Unlock the Power of Social Facilitation for Automatic Jailbreak Attack
+This is the official code repository for the paper: [**SoP**: Unlock the Power of Social Facilitation for Automatic Jailbreak Attack](https://arxiv.org/abs/2407.01902).
 
-The official repository containing the introduction and code for our NAACL 2025 paper: [SeqAR: Jailbreak LLMs with Sequential Auto-Generated Characters](https://arxiv.org/abs/2407.01902).
+You can use this code to attack both open-source and proprietary LLMs. **SoP** draws inspiration from the concept of social facilitation and leverages multiple auto-generated jailbreak
+characters to bypass the guardrail of the target LLMs.
 
-<p align="center">|
-  <a href="#-news"> 🔥 News</a> |
-  <a href="#-motivation">💡 Motivation</a> |
-  <a href="#-seqar">🔖 Method</a> |
-</p>
-
-<p align="center">|
-  <a href="#️-quick-start"> ⚡️ Quick Start </a> |
-  <a href="#-citation">📓 Citation</a> | 
-  <a href="https://arxiv.org/abs/2407.01902">📃 Paper </a>|
-</p>
-
-# 🔥 News
-- **Jan 2025**: Our paper has been accepted by **NAACL 2025 main conference**.
-- **Sep 2024**: We released our code and quick start.
-- **Jul 2024**: We released our paper on [**arxiv**](https://arxiv.org/abs/2407.01902).
-
-# 💡 Motivation
-- LLMs are more susceptible to distractions when responding as multiple characters sequentially.
-- Different characters specialize in distinct malicious instructions. The combination of different characters further amplifies the effectiveness of attack.
-
-# 🔖 SeqAR
-### SeqAR: **Seq**uential **A**uto-generated cha**R**acters 
-- Design and optimize the jailbreak templates automatically.
-- Jailbreak target LLMs by asking them to act as malicious characters sequentially.
-
-<span id="SeqAR"></span>
-![SeqAR](./assets/imgs/SeqAR_overview.png)
-
-
-# ⚡️ Quick Start
 ## Requirments
-Install all the packages from **requirments.txt**
+Install all the packages from requirments.txt
 ```
-conda create -n seqar python=3.10 -y
-conda activate seqar
-git clone https://github.com/sufenlp/SeqAR.git
-cd SeqAR
+conda create -n sop python=3.10 -y
+conda activate sop
+git clone https://github.com/sufenlp/SoP.git
+cd SoP
 pip install -r requirements.txt
 ```
 
 ## Data
-* The datasets used in **SeqAR** include:
+* The datasets used in **SoP** include:
   - [AdvBench](https://arxiv.org/abs/2210.10683v1)
   - [GPTFUZZER](https://arxiv.org/abs/2309.10253)
 * You can add more datasets in [./data]() referring to the existed csv or jsonl files.
 
 ## Model
-* The models used in **SeqAR** include: 
+* The models used in **SoP** include: 
   - LLaMA-2-7b
   - Vicuna-13b
   - ChatGPT-Turbo
@@ -100,7 +71,7 @@ EvalConfig:
 ```
 * Detailed experiment logs will be recorded in the workspace folder, where you can find the characters generated during the jailbreak optimization process and the results of different character combinations used to attack the model.
 
-## Run SeqAR
+## Run SoP
 * **Optimization**: Get the jailbreak characters.
 ```
 PYTHONPATH=your_project_pth \
@@ -116,20 +87,16 @@ python evaluate.py \
     -c 2
 ```
 
-# 📓 Citation
-If you find this repo useful for your research, please cite us as:
-```bibtex
-@inproceedings{yang-etal-2025-seqar,
-    title = "{S}eq{AR}: Jailbreak {LLM}s with Sequential Auto-Generated Characters",
-    author = "Yang, Yan  and  Xiao, Zeguan  and  Lu, Xin  and  Wang, Hongru  and  Wei, Xuetao  and  Huang, Hailiang  and  Chen, Guanhua  and  Chen, Yun",
-    editor = "Chiruzzo, Luis  and  Ritter, Alan  and  Wang, Lu",
-    booktitle = "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
-    month = apr,
-    year = "2025",
-    address = "Albuquerque, New Mexico",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2025.naacl-long.42/",
-    pages = "912--931",
-    ISBN = "979-8-89176-189-6"
+## Publications
+If you find **SoP** useful for your research or development, please cite the following <a href="https://arxiv.org/abs/2407.01902" target="_blank">paper</a>:
+```
+@misc{yang2024sopunlockpowersocial,
+  title={SoP: Unlock the Power of Social Facilitation for Automatic Jailbreak Attack}, 
+  author={Yan Yang and Zeguan Xiao and Xin Lu and Hongru Wang and Hailiang Huang and Guanhua Chen and Yun Chen},
+  year={2024},
+  eprint={2407.01902},
+  archivePrefix={arXiv},
+  primaryClass={cs.CR},
+  url={https://arxiv.org/abs/2407.01902}, 
 }
 ```
